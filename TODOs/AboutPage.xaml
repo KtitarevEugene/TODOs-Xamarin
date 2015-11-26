@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TODOs.AboutPage" Title="About">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<OnPlatform.iOS>0, 20, 0, 0</OnPlatform.iOS>
+			<OnPlatform.Android>0, 20, 0, 0</OnPlatform.Android>
+		</OnPlatform>
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+			<Label Text="TODOs Application" TextColor="White" XAlign="Center" FontSize="25.0" VerticalOptions="Center" />
+			<Label Text="Version: 2.1.0" TextColor="White" XAlign="Center" FontSize="15.0" VerticalOptions="Center" />
+			<Button Text="www.smartru.com" TextColor="Black" FontSize="15.0" BackgroundColor="Transparent" HeightRequest="35" Clicked="OnFollowLinkButtonClicked" />
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
