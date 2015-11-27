@@ -19,14 +19,15 @@ namespace TODOs
 		{
 			database = DependencyService.Get<ISQLite> ().GetConnection (DataBaseName);
 			database.CreateTable<ProjectModel> ();
+			database.CreateTable<TodoModel> ();
 		}
 		public void AddOrUpdateProject (ProjectModel item)
 		{
 			lock (syncObject) {
-				if (item.Id != 0) {
-					database.Update (item);
-				} else {
+				if (item.Id == 0) {
 					database.Insert (item);
+				} else {
+					database.Update (item);
 				}
 			}
 		}
@@ -50,6 +51,40 @@ namespace TODOs
 		{
 			lock (syncObject) {
 				database.Delete<ProjectModel> (id);
+			}
+		}
+		public void AddOrUpdateTodo(TodoModel item)
+		{
+			lock (syncObject) {
+				if (item.Id == 0) {
+					database.Insert (item);
+				} else {
+					database.Update (item);
+				}
+			}
+		}
+		public IEnumerable<TodoModel> GetTodosByProjectId (int projectId)
+		{
+			IEnumerable<TodoModel> resultSet = null;
+			lock (syncObject) {
+				resultSet = (from current in database.Table<TodoModel> ()
+				             where current.ProjectId == projectId
+							 select current).OrderBy (x => x.Status).OrderBy (x => x.Type);
+			}
+			return resultSet;
+		}
+		public TodoModel GetTodoById(int id)
+		{
+			TodoModel result = null;
+			lock (syncObject) {
+				result = database.Table<TodoModel> ().FirstOrDefault (x => x.Id == id);
+			}
+			return result;
+		}
+		public void RemoveTodo (int id)
+		{
+			lock (syncObject) {
+				database.Delete<TodoModel>(id);
 			}
 		}
 	}

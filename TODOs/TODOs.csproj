@@ -32,36 +32,49 @@
   <ItemGroup>
     <Compile Include="TODOs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AboutPage.xaml.cs">
-      <DependentUpon>AboutPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ProjectsPage.xaml.cs">
-      <DependentUpon>ProjectsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CustomListView.cs" />
-    <Compile Include="CreateProjectView.xaml.cs">
+    <Compile Include="Data\DataBaseConnection.cs" />
+    <Compile Include="Views\CreateProjectView.xaml.cs">
       <DependentUpon>CreateProjectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProjectModel.cs" />
-    <Compile Include="DataBaseConnection.cs" />
-    <Compile Include="ISQLite.cs" />
+    <Compile Include="Views\ProjectsPage.xaml.cs">
+      <DependentUpon>ProjectsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ISQLite.cs" />
+    <Compile Include="Models\ProjectModel.cs" />
+    <Compile Include="Views\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomListView.cs" />
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TodosPage.xaml.cs">
+      <DependentUpon>TodosPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TodoModel.cs" />
+    <Compile Include="Views\ProjectMenuView.xaml.cs">
+      <DependentUpon>ProjectMenuView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
-    <EmbeddedResource Include="AboutPage.xaml">
+    <EmbeddedResource Include="Views\CreateProjectView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPage.xaml">
+    <EmbeddedResource Include="Views\ProjectsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProjectsPage.xaml">
+    <EmbeddedResource Include="Views\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateProjectView.xaml">
+    <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TodosPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProjectMenuView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -84,5 +97,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Views\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 </Project>

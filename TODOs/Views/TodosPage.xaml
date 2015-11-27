@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:custom="clr-namespace:TODOs;assembly=TODOs"
-			 x:Class="TODOs.ProjectsPage"
-			 Title="Projects">
-	<ContentPage.Padding>
-		<OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
-	</ContentPage.Padding>
-	<ContentPage.Content>
+			 xmlns:custom="clr-namespace:TODOs;assemply=TODOs"
+			 x:Class="TODOs.TodosPage">
+	<ContentView.Content>
 		<AbsoluteLayout x:Name="contentPageArea" BackgroundColor="White">
 			<StackLayout VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
 				<StackLayout VerticalOptions="Start" HorizontalOptions="Fill" HeightRequest="50" BackgroundColor="#007caa" Orientation="Horizontal">
-					<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+					<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 						<StackLayout.Padding>
 							<OnPlatform x:TypeArguments="Thickness">
-								<OnPlatform.iOS>50, 0, 0, 0</OnPlatform.iOS>
-								<OnPlatform.Android>50, 0, 0, 0</OnPlatform.Android>
+								<OnPlatform.iOS>10, 0, -15, 0</OnPlatform.iOS>
+								<OnPlatform.Android>0, 0, -5, 0</OnPlatform.Android>
 							</OnPlatform>
 						</StackLayout.Padding>
-						<Label Text="Projects" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" XAlign="Center" FontAttributes="Bold" FontSize="20.0"/>
+						<Button Text="Back" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" BackgroundColor="Transparent" Clicked="OnBackButtonClicked" />
+						<Label Text="TODOs" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" XAlign="Center" FontAttributes="Bold" FontSize="20.0"/>
+						<Button Image="addTodo.png" Text="" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="End" BackgroundColor="Transparent" HeightRequest="35" WidthRequest="45" Clicked="OnMenuButtonClicked" />
 					</StackLayout>
 					<StackLayout Orientation="Horizontal" HorizontalOptions="End">
 						<StackLayout.Padding>
@@ -27,10 +25,9 @@
 								<OnPlatform.Android>0, 0, 10, 0</OnPlatform.Android>
 							</OnPlatform>
 						</StackLayout.Padding>
-						<Button Image="addProject.png" Text="null" FontSize="25.0" FontAttributes="Bold" TextColor="#007caa" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="13" HeightRequest="35" WidthRequest="30" BackgroundColor="White" Clicked="ShowCreateProjectView" />
 					</StackLayout>
 				</StackLayout>
-				<custom:CustomListView x:Name="projectsList" BackgroundColor="White" ItemSelected="OnItemSelected">
+				<custom:CustomListView x:Name="todosList" BackgroundColor="White">
 					<custom:CustomListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
@@ -42,7 +39,8 @@
 												<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
 											</OnPlatform>
 										</StackLayout.Padding>
-										<Label HorizontalOptions="FillAndExpand" FontSize="17" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding ProjectName}" />
+										<Image Source="arrow1.png" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" />
+										<Label HorizontalOptions="FillAndExpand" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding Description}" />
 										<Image Source="arrow1.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" />
 									</StackLayout>
 									<BoxView HorizontalOptions="FillAndExpand" HeightRequest="0.5" BackgroundColor="Gray" />
@@ -53,5 +51,5 @@
 				</custom:CustomListView>
 			</StackLayout>
 		</AbsoluteLayout>
-	</ContentPage.Content>
-</ContentPage>
+	</ContentView.Content>
+</ContentView>

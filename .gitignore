@@ -1,5 +1,3 @@
-iOS/bin/*
-Droid/bin/*
-obj/*
-obj/*
 .DS_Store
+bin/
+obj/

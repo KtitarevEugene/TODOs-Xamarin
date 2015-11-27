@@ -21,8 +21,8 @@
 					</StackLayout.Padding>
 					<Label Text="Enter new project name" TextColor="White" XAlign="Center" HorizontalOptions="Center" HeightRequest="20" />
 					<Entry x:Name="projectNameFiled" Placeholder="Project name" BackgroundColor="White" TextColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="40" />
-					<Button x:Name="createButton" Text="Create" TextColor="Black" FontAttributes="Bold" FontSize="20" BorderRadius="10" BackgroundColor="#d5d5d5" HeightRequest="40" Clicked="OnCreateButtonClicked" />
-					<Button x:Name="cancelButton" Text="Cancel" TextColor="White" FontAttributes="Bold" FontSize="20" BorderRadius="10" BackgroundColor="#e00808" HeightRequest="40" Clicked="OnCancelButtonClicked" />
+					<Button Text="Create" TextColor="Black" FontAttributes="Bold" FontSize="20" BorderRadius="10" BackgroundColor="#d5d5d5" HeightRequest="40" Clicked="OnCreateButtonClicked" />
+					<Button Text="Cancel" TextColor="White" FontAttributes="Bold" FontSize="20" BorderRadius="10" BackgroundColor="#e00808" HeightRequest="40" Clicked="OnCancelButtonClicked" />
 				</StackLayout>
 			</StackLayout>
 		</Grid>

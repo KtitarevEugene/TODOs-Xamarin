@@ -35,10 +35,14 @@ namespace TODOs
 		}
 		void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
 		{
+			var todosPage = new TodosPage ();
+			todosPage.BackButtonClicked += (sender1, args) => {
+				contentPageArea.Children.Remove(todosPage);
+			};
 			var selectedProject = e.SelectedItem as ProjectModel;
 			if (selectedProject != null) {
-				
-				System.Diagnostics.Debug.WriteLine (String.Format ("selected project: id = {0}; name = {1};", selectedProject.Id, selectedProject.ProjectName));
+				todosPage.ProjectId = selectedProject.Id;
+				contentPageArea.Children.Add (todosPage, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
 			}
 		}
 	}

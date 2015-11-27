@@ -122,15 +122,21 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <Compile Include="AboutPageRenderer.cs" />
-    <Compile Include="MainPageRenderer.cs" />
-    <Compile Include="CustomListViewRenderer.cs" />
-    <Compile Include="SQLite_iOS.cs" />
+    <Compile Include="SQLite\SQLite_iOS.cs" />
+    <Compile Include="Renderers\AboutPageRenderer.cs" />
+    <Compile Include="Renderers\CustomListViewRenderer.cs" />
+    <Compile Include="Renderers\MainPageRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.2\build\Xamarin.iOS10\Xamarin.Insights.targets')" />
   <ItemGroup>
     <BundleResource Include="Resources\arrow1.png" />
+    <BundleResource Include="Resources\addTodo.png" />
+    <BundleResource Include="Resources\addProject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQLite\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
 </Project>
