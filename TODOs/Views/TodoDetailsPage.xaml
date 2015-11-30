@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:custom="clr-namespace:TODOs;assemply=TODOs"
+			 x:Class="TODOs.TodoDetailsPage">
+	<ContentView.Content>
+		<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#3088aa">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="50"/>
+			</Grid.RowDefinitions>
+		    <Grid.ColumnDefinitions>
+		        <ColumnDefinition Width="*" />
+		    </Grid.ColumnDefinitions>
+			<StackLayout VerticalOptions="Start" HorizontalOptions="Fill" HeightRequest="50" BackgroundColor="#007caa" Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+					<StackLayout.Padding>
+						<OnPlatform x:TypeArguments="Thickness">
+							<OnPlatform.iOS>10, 5, 10, 5</OnPlatform.iOS>
+							<OnPlatform.Android>10, 5, 10, 5</OnPlatform.Android>
+						</OnPlatform>
+					</StackLayout.Padding>
+					<Button Text="Back" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" />
+					<Button Text="Remove" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="End" BorderRadius="10" HeightRequest="35" BackgroundColor="#e00808">
+						<Button.WidthRequest>
+							<OnPlatform x:TypeArguments="x:Double" iOS="70" Android="100" />
+						</Button.WidthRequest>
+					</Button>
+					<Button Text="Save" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="End" BorderRadius="10" WidthRequest="50" HeightRequest="35" BackgroundColor="#009fe4">
+						<Button.WidthRequest>
+							<OnPlatform x:TypeArguments="x:Double" iOS="50" Android="80" />
+						</Button.WidthRequest>
+					</Button>
+				</StackLayout>
+			</StackLayout>
+			<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+				<StackLayout.Padding>
+					<OnPlatform x:TypeArguments="Thickness">
+						<OnPlatform.iOS>10, 0, 10, 0</OnPlatform.iOS>
+						<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
+					</OnPlatform>
+				</StackLayout.Padding>
+				<custom:CustomEditor VerticalOptions="FillAndExpand" TextColor="Black" HorizontalOptions="FillAndExpand">
+					<custom:CustomEditor.BackgroundColor>
+						<OnPlatform x:TypeArguments="Color">
+							<OnPlatform.Android>Transparent</OnPlatform.Android>
+							<OnPlatform.iOS>White</OnPlatform.iOS>
+						</OnPlatform>
+					</custom:CustomEditor.BackgroundColor>
+				</custom:CustomEditor>
+			</StackLayout>
+			<custom:CustomStackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+				<custom:CustomStackLayout.Padding>
+					<OnPlatform x:TypeArguments="Thickness">
+						<OnPlatform.iOS>10, 0, 10, 0</OnPlatform.iOS>
+						<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
+					</OnPlatform>
+				</custom:CustomStackLayout.Padding>
+				<custom:CustomStackLayout.BackgroundColor>
+					<OnPlatform x:TypeArguments="Color">
+						<OnPlatform.Android>Transparent</OnPlatform.Android>
+						<OnPlatform.iOS>White</OnPlatform.iOS>
+					</OnPlatform>
+				</custom:CustomStackLayout.BackgroundColor>
+			</custom:CustomStackLayout>
+		</Grid>
+	</ContentView.Content>
+</ContentView>

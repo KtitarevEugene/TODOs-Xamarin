@@ -7,7 +7,6 @@ namespace TODOs
 	public class CustomListView : ListView
 	{
 		public CustomListView() : base()
-		{
-		}
+		{}
 	}
 }

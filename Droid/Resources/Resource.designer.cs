@@ -3324,8 +3324,11 @@ namespace TODOs.Droid
 			// aapt resource value: 0x7f020067
 			public const int mr_ic_settings_light = 2130837607;
 			
+			// aapt resource value: 0x7f020069
+			public const int notification_template_icon_bg = 2130837609;
+			
 			// aapt resource value: 0x7f020068
-			public const int notification_template_icon_bg = 2130837608;
+			public const int roundedBorder = 2130837608;
 			
 			static Drawable()
 			{

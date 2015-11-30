@@ -33,6 +33,11 @@ namespace TODOs
 			};
 			contentPageArea.Children.Add (createDialog, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
 		}
+		//FIXME temp handler
+		public void showThirdView (object sender, EventArgs e) {
+			var todoDetails = new TodoDetailsPage ();
+			contentPageArea.Children.Add (todoDetails, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
+		}
 		void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
 		{
 			var todosPage = new TodosPage ();
