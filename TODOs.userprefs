@@ -1,14 +1,15 @@
 ﻿<Properties StartupItem="iOS/TODOs.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TODOs/ProjectsPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TODOs/Views/ProjectsPage.xaml">
     <Files>
-      <File FileName="TODOs/CustomListView.cs" Line="11" Column="4" />
-      <File FileName="TODOs/CreateProjectView.xaml.cs" Line="34" Column="3" />
-      <File FileName="TODOs/CreateProjectView.xaml" Line="24" Column="197" />
-      <File FileName="TODOs/DataBaseConnection.cs" Line="37" Column="1" />
-      <File FileName="TODOs/ProjectModel.cs" Line="9" Column="4" />
-      <File FileName="TODOs/ProjectsPage.xaml.cs" Line="40" Column="5" />
-      <File FileName="TODOs/ProjectsPage.xaml" Line="22" Column="1" />
+      <File FileName="TODOs/Views/TodosPage.xaml" Line="20" Column="1" />
+      <File FileName="TODOs/Views/TodosPage.xaml.cs" Line="62" Column="83" />
+      <File FileName="TODOs/Views/MainPage.xaml.cs" Line="13" Column="1" />
+      <File FileName="TODOs/Views/ProjectsPage.xaml.cs" Line="30" Column="22" />
+      <File FileName="TODOs/Models/TodoModel.cs" Line="14" Column="4" />
+      <File FileName="TODOs/Views/ProjectMenuView.xaml" Line="8" Column="36" />
+      <File FileName="TODOs/Views/ProjectMenuView.xaml.cs" Line="28" Column="4" />
+      <File FileName="TODOs/Views/ProjectsPage.xaml" Line="32" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

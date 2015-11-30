@@ -122,14 +122,12 @@
     <AndroidResource Include="Resources\drawable-hdpi\addProject.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\addProject.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\addProject.png" />
+    <AndroidResource Include="Resources\drawable\arrow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\arrow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\arrow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Xamarin.Insights.1.11.2\build\MonoAndroid10\Xamarin.Insights.targets" Condition="Exists('..\packages\Xamarin.Insights.1.11.2\build\MonoAndroid10\Xamarin.Insights.targets')" />
-  <ItemGroup>
-    <BundleResource Include="Resources\drawable-hdpi\arrow1.png" />
-    <BundleResource Include="Resources\drawable-xhdpi\arrow1.png" />
-    <BundleResource Include="Resources\drawable-xxhdpi\arrow1.png" />
-    <BundleResource Include="Resources\drawable\arrow1.png" />
-  </ItemGroup>
 </Project>

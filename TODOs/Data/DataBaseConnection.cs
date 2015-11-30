@@ -87,6 +87,12 @@ namespace TODOs
 				database.Delete<TodoModel>(id);
 			}
 		}
+		public void RemoveTodosByProjectId(int projectId)
+		{
+			lock (syncObject) {
+				database.Table<TodoModel> ().Delete (x => x.ProjectId == projectId);
+			}
+		}
 	}
 }
 

@@ -22,12 +22,12 @@ namespace TODOs
 			createDialog.CreateClicked += async (s, args) => {
 				var eventArgs = args as ActionSheetEventArgs;
 				if (eventArgs != null) {
-					if (String.IsNullOrEmpty(eventArgs.ProjectName)) {
-						await DisplayAlert("Warning", "Please, enter new project name.", "OK");
-					} else {
-						App.DataBase.AddOrUpdateProject(new ProjectModel(eventArgs.ProjectName));
+					if (eventArgs.ProjectName != null && !String.IsNullOrEmpty(eventArgs.ProjectName.Trim())) {
+						App.DataBase.AddOrUpdateProject(new ProjectModel(eventArgs.ProjectName.Trim()));
 						projectsList.ItemsSource = App.DataBase.GetAllProjects ();
 						contentPageArea.Children.Remove(createDialog);
+					} else {
+						await DisplayAlert("Warning", "Please, enter new project name.", "OK");
 					}
 				}
 			};
@@ -38,6 +38,7 @@ namespace TODOs
 			var todosPage = new TodosPage ();
 			todosPage.BackButtonClicked += (sender1, args) => {
 				contentPageArea.Children.Remove(todosPage);
+				projectsList.ItemsSource = App.DataBase.GetAllProjects ();
 			};
 			var selectedProject = e.SelectedItem as ProjectModel;
 			if (selectedProject != null) {

@@ -39,9 +39,9 @@
 												<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
 											</OnPlatform>
 										</StackLayout.Padding>
-										<Image Source="arrow1.png" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" />
-										<Label HorizontalOptions="FillAndExpand" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding Description}" />
-										<Image Source="arrow1.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" />
+										<Image Source="arrow.jpg" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" />
+										<Label HorizontalOptions="FillAndExpand" FontSize="20" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding Description}" />
+										<Image Source="arrow.jpg" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" />
 									</StackLayout>
 									<BoxView HorizontalOptions="FillAndExpand" HeightRequest="0.5" BackgroundColor="Gray" />
 								</StackLayout>

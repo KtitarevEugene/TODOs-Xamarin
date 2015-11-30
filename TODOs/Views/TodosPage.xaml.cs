@@ -10,26 +10,7 @@ namespace TODOs
 		private int projectId;
 		public TodosPage ()
 		{
-			/*var list = new List<TodoModel> () {
-				new TodoModel ()
-				{
-					Description = "Todo 1"
-				},
-				new TodoModel ()
-				{
-					Description = "Todo 2 l,elr,elv,pr,evr"
-				},
-				new TodoModel ()
-				{
-					Description = "Todo 3"
-				},
-				new TodoModel ()
-				{
-					Description = "Todo 4"
-				}
-			};*/
 			InitializeComponent ();
-			//todosList.ItemsSource = list;
 		}
 		public int ProjectId
 		{
@@ -38,7 +19,6 @@ namespace TODOs
 			}
 			set {
 				projectId = value;
-				// TODO select items from database
 				todosList.ItemsSource = App.DataBase.GetTodosByProjectId(projectId);
 			}
 		}
@@ -57,6 +37,14 @@ namespace TODOs
 			var projectMenuDialog = new ProjectMenuView ();
 			projectMenuDialog.CancelButtonClicked += (sender1, args) => {
 				contentPageArea.Children.Remove(projectMenuDialog);
+			};
+			projectMenuDialog.RemoveProjectButtonClicked += (sender1, args) => {
+				App.DataBase.RemoveTodosByProjectId(projectId);
+				App.DataBase.RemoveProject(projectId);
+				contentPageArea.Children.Remove(projectMenuDialog);
+				if (BackButtonClicked != null) {
+					BackButtonClicked (this, new EventArgs());
+				}
 			};
 			if (contentPageArea != null) {
 				contentPageArea.Children.Add (projectMenuDialog, new Rectangle(0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
