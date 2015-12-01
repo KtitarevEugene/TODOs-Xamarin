@@ -10,7 +10,7 @@ using Android.OS;
 
 namespace TODOs.Droid
 {
-	[Activity (Label = "TODOs.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+	[Activity (Label = "TODOs.Droid", Icon = "@drawable/icon", WindowSoftInputMode = SoftInput.AdjustPan, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
 		protected override void OnCreate (Bundle bundle)

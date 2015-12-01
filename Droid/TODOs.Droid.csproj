@@ -95,7 +95,7 @@
     <Compile Include="SQLite\SQLite_Android.cs" />
     <Compile Include="Renderers\AboutPageRenderer.cs" />
     <Compile Include="Renderers\CustomEditorRenderer.cs" />
-    <Compile Include="Resources\drawable\CustomStackLayoutRenderer.cs" />
+    <Compile Include="Renderers\CustomFrameRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

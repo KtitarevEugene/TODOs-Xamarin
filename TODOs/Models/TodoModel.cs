@@ -5,10 +5,10 @@ namespace TODOs
 {
 	public class TodoModel
 	{
-		public readonly int TypeFeature				 = 1;
-		public readonly int TypeBug 				 = 0;
-		public readonly int StatusNew   			 = 1;
-		public readonly int StatusFixedOrImplemented = 0;
+		public static readonly ushort TypeFeature			 	= 1;
+		public static readonly ushort TypeBug 				 	= 0;
+		public static readonly ushort StatusNew   				= 1;
+		public static readonly ushort StatusFixedOrImplemented  = 0;
 
 		public TodoModel ()
 		{

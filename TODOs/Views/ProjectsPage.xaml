@@ -33,7 +33,6 @@
 								<TapGestureRecognizer Tapped="ShowCreateProjectView" />
 							</Image.GestureRecognizers>
 						</Image>
-						<!---<Button Image="addProject.png" FontSize="25.0" TextColor="#007caa" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" BorderRadius="13" HeightRequest="26" WidthRequest="26" BackgroundColor="White" Clicked="ShowCreateProjectView" />-->
 					</StackLayout>
 				</StackLayout>
 				<custom:CustomListView x:Name="projectsList" BackgroundColor="White" ItemSelected="OnItemSelected">

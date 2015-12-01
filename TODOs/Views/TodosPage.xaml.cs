@@ -8,9 +8,11 @@ namespace TODOs
 	public partial class TodosPage : ContentView
 	{
 		private int projectId;
-		public TodosPage ()
+		private ContentPage rootPage;
+		public TodosPage (ContentPage page)
 		{
 			InitializeComponent ();
+			rootPage = page;
 		}
 		public int ProjectId
 		{
@@ -45,6 +47,10 @@ namespace TODOs
 				if (BackButtonClicked != null) {
 					BackButtonClicked (this, new EventArgs());
 				}
+			};
+			projectMenuDialog.AddTodoButtonClicked += (sender1, args) => {
+				var todoDetails = new TodoDetailsPage(rootPage, projectId);
+				contentPageArea.Children.Add (todoDetails, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
 			};
 			if (contentPageArea != null) {
 				contentPageArea.Children.Add (projectMenuDialog, new Rectangle(0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
