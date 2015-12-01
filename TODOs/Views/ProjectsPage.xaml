@@ -29,7 +29,6 @@
 						</StackLayout.Padding>
 						<Image Source="addProject.png" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" HorizontalOptions="End">
 							<Image.GestureRecognizers>
-								<!---<TapGestureRecognizer Tapped="showThirdView" />-->
 								<TapGestureRecognizer Tapped="ShowCreateProjectView" />
 							</Image.GestureRecognizers>
 						</Image>

@@ -5,10 +5,10 @@ namespace TODOs
 {
 	public class TodoModel
 	{
-		public static readonly ushort TypeFeature			 	= 1;
-		public static readonly ushort TypeBug 				 	= 0;
-		public static readonly ushort StatusNew   				= 1;
-		public static readonly ushort StatusFixedOrImplemented  = 0;
+		public const ushort TypeFeature			 	= 1;
+		public const ushort TypeBug 				 	= 0;
+		public const ushort StatusNew   				= 1;
+		public const ushort StatusFixedOrImplemented  = 0;
 
 		public TodoModel ()
 		{

@@ -50,6 +50,18 @@ namespace TODOs
 			};
 			projectMenuDialog.AddTodoButtonClicked += (sender1, args) => {
 				var todoDetails = new TodoDetailsPage(rootPage, projectId);
+				todoDetails.BackButtonClicked += (s, arg) => {
+					contentPageArea.Children.Remove(todoDetails);
+				};
+				todoDetails.SaveButtonClicked += (s, arg) => {
+					var eventSaveArgs = arg as TODOs.TodoDetailsPage.EventSaveArgs;
+					if(eventSaveArgs != null) {
+						App.DataBase.AddOrUpdateTodo(eventSaveArgs.Todo);
+					}
+					todosList.ItemsSource = App.DataBase.GetTodosByProjectId(projectId);
+					contentPageArea.Children.Remove(todoDetails);
+				};
+				contentPageArea.Children.Remove(projectMenuDialog);
 				contentPageArea.Children.Add (todoDetails, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
 			};
 			if (contentPageArea != null) {

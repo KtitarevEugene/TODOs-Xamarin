@@ -136,6 +136,8 @@
     <BundleResource Include="Resources\addTodo.png" />
     <BundleResource Include="Resources\addProject.png" />
     <BundleResource Include="Resources\arrow.png" />
+    <BundleResource Include="Resources\bug.png" />
+    <BundleResource Include="Resources\feature.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQLite\" />

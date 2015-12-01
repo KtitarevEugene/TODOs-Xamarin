@@ -28,7 +28,9 @@ namespace TODOs
 			public TodoModel Todo { get; private set; }
 		}
 		public delegate void EventSaveHandler (object sender, EventSaveArgs args);
-		public event EventSaveHandler EventSaved;
+		public event EventSaveHandler SaveButtonClicked;
+		public event EventHandler BackButtonClicked;
+		public event EventHandler RemoveButtonClicked;
 
 		public TodoDetailsPage (ContentPage page, int projectId, int todoId = 0) : base()
 		{
@@ -44,33 +46,43 @@ namespace TODOs
 		}
 		public void OnBackButtonClicked(object sender, EventArgs e)
 		{
-			// TODO back
+			if (BackButtonClicked != null) {
+				BackButtonClicked (this, new EventArgs ());
+			}
 		}
 		public void OnRemoveButtonClicked(object sender, EventArgs e)
 		{
-			// TODO remove
+			if (id != 0) {
+				if (RemoveButtonClicked != null) {
+					RemoveButtonClicked (this, new EventArgs ());
+				}
+			}
 		}
-		public void OnSaveButtonClicked(object sender, EventArgs e)
+		public async void OnSaveButtonClicked(object sender, EventArgs e)
 		{
-			TodoModel todo = new TodoModel ();
-			todo.Id = id;
-			todo.ProjectId = projectId;
-			todo.Description = description.Text;
-			todo.Date = todosDate.Text;
-			if (todosType.Text.CompareTo (TYPE_BUG) == 0) {
-				todo.Type = TodoModel.TypeBug;
-			} else {
-				todo.Type = TodoModel.TypeFeature;
-			}
-			if (todosStatus.Text.CompareTo (STATUS_NEW) == 0) {
-				todo.Status = TodoModel.StatusNew;
-			} else {
-				todo.Status = TodoModel.StatusFixedOrImplemented;
-			}
-			// TODO Implement chosing color
+			if (description.Text != null && !String.IsNullOrEmpty (description.Text.Trim())) {
+				var todo = new TodoModel ();
+				todo.Id = id;
+				todo.ProjectId = projectId;
+				todo.Description = description.Text.Trim();
+				todo.Date = todosDate.Text;
+				if (todosType.Text.CompareTo (TYPE_BUG) == 0) {
+					todo.Type = TodoModel.TypeBug;
+				} else {
+					todo.Type = TodoModel.TypeFeature;
+				}
+				if (todosStatus.Text.CompareTo (STATUS_NEW) == 0) {
+					todo.Status = TodoModel.StatusNew;
+				} else {
+					todo.Status = TodoModel.StatusFixedOrImplemented;
+				}
+				// TODO Implement chosing color
 
-			if (EventSaved != null) {
-				EventSaved (this, new EventSaveArgs (todo));
+				if (SaveButtonClicked != null) {
+					SaveButtonClicked (this, new EventSaveArgs (todo));
+				}
+			} else {
+				await rootPage.DisplayAlert("Warning", "Please, enter todo's description.", "OK");
 			}
 		}
 		public async void OnTappedSelectType (object sender, EventArgs e)

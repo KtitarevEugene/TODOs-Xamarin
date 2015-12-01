@@ -129,6 +129,14 @@
     <AndroidResource Include="Resources\drawable-xhdpi\arrow.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\arrow.png" />
     <AndroidResource Include="Resources\drawable\roundedBorder.axml" />
+    <AndroidResource Include="Resources\drawable\bug.png" />
+    <AndroidResource Include="Resources\drawable\feature.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\bug.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\feature.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bug.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\feature.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bug.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\feature.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

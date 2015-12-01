@@ -3,6 +3,11 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 xmlns:custom="clr-namespace:TODOs;assemply=TODOs"
 			 x:Class="TODOs.TodosPage">
+	<ContentView.Resources>
+		<ResourceDictionary>
+			<custom:TodoTypeConverter x:Key="typeToImage"/>
+		</ResourceDictionary>
+	</ContentView.Resources>
 	<ContentView.Content>
 		<AbsoluteLayout x:Name="contentPageArea" BackgroundColor="White">
 			<StackLayout VerticalOptions="CenterAndExpand" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
@@ -39,9 +44,9 @@
 												<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
 											</OnPlatform>
 										</StackLayout.Padding>
-										<Image Source="arrow.jpg" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" />
+										<Image Source="{Binding Converter={StaticResource typeToImage}}" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" />
 										<Label HorizontalOptions="FillAndExpand" FontSize="20" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding Description}" />
-										<Image Source="arrow.jpg" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" />
+										<Image Source="arrow.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" />
 									</StackLayout>
 									<BoxView HorizontalOptions="FillAndExpand" HeightRequest="0.5" BackgroundColor="Gray" />
 								</StackLayout>
