@@ -83,6 +83,7 @@ namespace TODOs
 				}
 			} else {
 				await rootPage.DisplayAlert("Warning", "Please, enter todo's description.", "OK");
+				description.Focus ();
 			}
 		}
 		public async void OnTappedSelectType (object sender, EventArgs e)

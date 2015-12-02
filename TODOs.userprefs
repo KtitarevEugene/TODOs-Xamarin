@@ -2,14 +2,14 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.1" />
   <MonoDevelop.Ide.Workbench ActiveDocument="TODOs/Views/TodoDetailsPage.xaml">
     <Files>
-      <File FileName="TODOs/Views/TodoDetailsPage.xaml" Line="11" Column="29" />
-      <File FileName="TODOs/Views/TodoDetailsPage.xaml.cs" Line="10" Column="26" />
-      <File FileName="TODOs/Views/ProjectsPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="TODOs/Views/ProjectsPage.xaml" Line="33" Column="72" />
-      <File FileName="iOS/Renderers/CustomFrameRenderer.cs" Line="7" Column="66" />
-      <File FileName="TODOs/Views/CustomFrame.cs" Line="9" Column="5" />
-      <File FileName="Droid/Renderers/CustomFrameRenderer.cs" Line="7" Column="1" />
-      <File FileName="Droid/MainActivity.cs" Line="13" Column="102" />
+      <File FileName="TODOs/Views/TodoDetailsPage.xaml" Line="19" Column="27" />
+      <File FileName="TODOs/Views/TodoDetailsPage.xaml.cs" Line="71" Column="13" />
+      <File FileName="TODOs/Views/ProjectsPage.xaml" Line="6" Column="22" />
+      <File FileName="TODOs/Views/TodosPage.xaml" Line="7" Column="4" />
+      <File FileName="TODOs/Views/TodosPage.xaml.cs" Line="64" Column="56" />
+      <File FileName="TODOs/Converters/TodoTypeConverter.cs" Line="9" Column="35" />
+      <File FileName="TODOs/Models/TodoModel.cs" Line="9" Column="28" />
+      <File FileName="TODOs/obj/Debug/TODOs.Views.TodosPage.xaml.g.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

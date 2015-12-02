@@ -17,10 +17,7 @@
 			<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" HeightRequest="50" BackgroundColor="#007caa" Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
 				<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 					<StackLayout.Padding>
-						<OnPlatform x:TypeArguments="Thickness">
-							<OnPlatform.iOS>10, 5, 10, 5</OnPlatform.iOS>
-							<OnPlatform.Android>10, 5, 10, 5</OnPlatform.Android>
-						</OnPlatform>
+						<OnPlatform x:TypeArguments="Thickness" iOS="10, 5, 10, 5" Android="0, 5, 10, 5" />
 					</StackLayout.Padding>
 					<Button Text="Back" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" BackgroundColor="Transparent" Clicked="OnBackButtonClicked" />
 					<Button Text="Remove" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="End" BorderRadius="10" HeightRequest="35" BackgroundColor="#e00808" Clicked="OnRemoveButtonClicked">
@@ -42,7 +39,7 @@
 						<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
 					</OnPlatform>
 				</StackLayout.Padding>
-				<custom:CustomEditor x:Name="description" VerticalOptions="FillAndExpand" TextColor="Black" HorizontalOptions="FillAndExpand">
+				<custom:CustomEditor x:Name="description" VerticalOptions="FillAndExpand" TextColor="Black" FontSize="17" HorizontalOptions="FillAndExpand">
 					<custom:CustomEditor.BackgroundColor>
 						<OnPlatform x:TypeArguments="Color">
 							<OnPlatform.Android>Transparent</OnPlatform.Android>
