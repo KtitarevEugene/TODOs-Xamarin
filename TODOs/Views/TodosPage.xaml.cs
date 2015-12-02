@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
 namespace TODOs
 {
 	public partial class TodosPage : ContentView
 	{
 		private int projectId;
+		private ObservableCollection<TodoModel> itemsList;
 		private ContentPage rootPage;
 		public TodosPage (ContentPage page)
 		{
 			InitializeComponent ();
+			itemsList = new ObservableCollection<TodoModel> ();
 			rootPage = page;
+			todosList.ItemsSource = itemsList;
 		}
 		public int ProjectId
 		{
@@ -21,19 +25,19 @@ namespace TODOs
 			}
 			set {
 				projectId = value;
-				todosList.ItemsSource = App.DataBase.GetTodosByProjectId(projectId);
+				ResetListData ();
 			}
 		}
 
 		public event EventHandler BackButtonClicked;
 		public event EventHandler MenuButtonClicked;
-		public void OnBackButtonClicked (object sender, EventArgs e)
+		private void OnBackButtonClicked (object sender, EventArgs e)
 		{
 			if (BackButtonClicked != null) {
 				BackButtonClicked (this, new EventArgs());
 			}
 		}
-		public void OnMenuButtonClicked (object sender, EventArgs e)
+		private void OnMenuButtonClicked (object sender, EventArgs e)
 		{
 			var contentPageArea = this.FindByName<AbsoluteLayout> ("contentPageArea");
 			var projectMenuDialog = new ProjectMenuView ();
@@ -58,7 +62,7 @@ namespace TODOs
 					if(eventSaveArgs != null) {
 						App.DataBase.AddOrUpdateTodo(eventSaveArgs.Todo);
 					}
-					todosList.ItemsSource = App.DataBase.GetTodosByProjectId(projectId);
+					ResetListData();
 					contentPageArea.Children.Remove(todoDetails);
 				};
 				contentPageArea.Children.Remove(projectMenuDialog);
@@ -69,6 +73,40 @@ namespace TODOs
 			}
 			if (MenuButtonClicked != null) {
 				MenuButtonClicked (this, new EventArgs ());
+			}
+		}
+		private void ResetListData ()
+		{
+			IEnumerable<TodoModel> list = App.DataBase.GetTodosByProjectId (projectId);
+			itemsList.Clear ();
+			foreach (TodoModel item in list) {
+				itemsList.Add (item);
+			}
+		}
+		private void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
+		{
+			var listView = sender as CustomListView;
+			if (listView != null) {
+				listView.SelectedItem = null;
+			}
+			var todoModel = e.SelectedItem as TodoModel;
+			if (todoModel != null) {
+				var todoDetails = new TodoDetailsPage (rootPage, todoModel);
+				todoDetails.BackButtonClicked += (s, arg) => {
+					contentPageArea.Children.Remove (todoDetails);
+				};
+				todoDetails.RemoveButtonClicked += (sender1, args) => {
+					App.DataBase.RemoveTodo (todoModel.Id);
+					ResetListData ();
+					contentPageArea.Children.Remove (todoDetails);
+				};
+				todoDetails.SaveButtonClicked += (sender1, args) => {
+					var todo = args.Todo;
+					App.DataBase.AddOrUpdateTodo (todo);
+					ResetListData ();
+					contentPageArea.Children.Remove (todoDetails);
+				};
+				contentPageArea.Children.Add (todoDetails, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
 			}
 		}
 	}

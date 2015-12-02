@@ -35,7 +35,9 @@ namespace TODOs
 		}
 		void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
 		{
+			var list = sender as CustomListView;
 			var todosPage = new TodosPage (this);
+			list.SelectedItem = null;
 			todosPage.BackButtonClicked += (sender1, args) => {
 				contentPageArea.Children.Remove(todosPage);
 				projectsList.ItemsSource = App.DataBase.GetAllProjects ();
@@ -48,4 +50,3 @@ namespace TODOs
 		}
 	}
 }
-

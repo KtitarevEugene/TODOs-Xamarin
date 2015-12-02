@@ -138,6 +138,22 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\bug.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\feature.png" />
     <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\drawable\blue.png" />
+    <AndroidResource Include="Resources\drawable\red.png" />
+    <AndroidResource Include="Resources\drawable\white.png" />
+    <AndroidResource Include="Resources\drawable\yellow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\blue.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\red.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\white.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\yellow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\blue.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\red.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\white.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\yellow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\blue.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\red.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\white.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\yellow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.0.6484\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

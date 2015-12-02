@@ -6,6 +6,7 @@
 	<ContentView.Resources>
 		<ResourceDictionary>
 			<custom:TodoTypeConverter x:Key="typeToImage"/>
+			<custom:ColorIndexConverter x:Key="colorIndex" />
 		</ResourceDictionary>
 	</ContentView.Resources>
 	<ContentView.Content>
@@ -32,11 +33,11 @@
 						</StackLayout.Padding>
 					</StackLayout>
 				</StackLayout>
-				<custom:CustomListView x:Name="todosList" BackgroundColor="White">
+				<custom:CustomListView x:Name="todosList" BackgroundColor="White" ItemSelected="OnItemSelected">
 					<custom:CustomListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
-								<StackLayout Orientation="Vertical" HeightRequest="50">
+								<StackLayout Orientation="Vertical" HeightRequest="50" BackgroundColor="{Binding Converter={StaticResource colorIndex}}">
 									<StackLayout VerticalOptions="StartAndExpand" HeightRequest="50" Orientation="Horizontal">
 										<StackLayout.Padding>
 											<OnPlatform x:TypeArguments="Thickness">

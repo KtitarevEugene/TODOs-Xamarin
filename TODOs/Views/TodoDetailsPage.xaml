@@ -6,10 +6,10 @@
 	<ContentView.Content>
 		<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#3088aa">
 			<Grid.RowDefinitions>
-				<RowDefinition Height="50"/>
-				<RowDefinition Height="210"/>
-				<RowDefinition Height="*"/>
-				<RowDefinition Height="70"/>
+				<RowDefinition Height="50" />
+				<RowDefinition Height="210" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="70" />
 			</Grid.RowDefinitions>
 		    <Grid.ColumnDefinitions>
 		        <ColumnDefinition Width="*" />
@@ -34,10 +34,7 @@
 			</StackLayout>
 			<StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
 				<StackLayout.Padding>
-					<OnPlatform x:TypeArguments="Thickness">
-						<OnPlatform.iOS>10, 0, 10, 0</OnPlatform.iOS>
-						<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
-					</OnPlatform>
+					<OnPlatform x:TypeArguments="Thickness" iOS="10, 0, 10, 0" Android="10, 0, 10, 0" />
 				</StackLayout.Padding>
 				<custom:CustomEditor x:Name="description" VerticalOptions="FillAndExpand" TextColor="Black" FontSize="17" HorizontalOptions="FillAndExpand">
 					<custom:CustomEditor.BackgroundColor>
@@ -89,6 +86,39 @@
 						</Label>
 					</Grid>
 				</custom:CustomFrame>
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="3" Grid.Column="0">
+				<Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="*" />
+					</Grid.ColumnDefinitions>
+					<Image VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="white" Source="white.png" Grid.Row="0" Grid.Column="0">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnTappedSelectColor" />
+						</Image.GestureRecognizers>
+					</Image>
+					<Image VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="yellow" Source="yellow.png" Grid.Row="0" Grid.Column="1">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnTappedSelectColor" />
+						</Image.GestureRecognizers>
+					</Image>
+					<Image VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="red" Source="red.png" Grid.Row="0" Grid.Column="2">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnTappedSelectColor" />
+						</Image.GestureRecognizers>
+					</Image>
+					<Image VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" x:Name="blue" Source="blue.png" Grid.Row="0" Grid.Column="3">
+						<Image.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnTappedSelectColor" />
+						</Image.GestureRecognizers>
+					</Image>
+				</Grid>
 			</StackLayout>
 		</Grid>
 	</ContentView.Content>

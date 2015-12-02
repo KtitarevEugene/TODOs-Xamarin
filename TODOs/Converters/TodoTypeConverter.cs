@@ -27,7 +27,7 @@ namespace TODOs
 					}
 				}
 			}
-			return value;
+			return IconDefault;
 		}
 		public object ConvertBack (object value, Type targetType, object parameter, CultureInfo culture)
 		{

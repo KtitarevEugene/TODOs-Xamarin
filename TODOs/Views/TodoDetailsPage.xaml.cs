@@ -8,8 +8,7 @@ namespace TODOs
 {
 	public partial class TodoDetailsPage : ContentView
 	{
-		private int id;
-		private int projectId;
+		private TodoModel model;
 		private ContentPage rootPage;
 
 		private readonly string TYPE_BUG = "Bug";
@@ -32,61 +31,61 @@ namespace TODOs
 		public event EventHandler BackButtonClicked;
 		public event EventHandler RemoveButtonClicked;
 
-		public TodoDetailsPage (ContentPage page, int projectId, int todoId = 0) : base()
+		public TodoDetailsPage (ContentPage page, int projectId) : this(page, new TodoModel() {ProjectId = projectId})
+		{}
+		public TodoDetailsPage (ContentPage page, TodoModel todo) : base()
 		{
 			InitializeComponent ();
-			if (todoId == 0) {
+			if (todo.Id == 0) {
 				todosDate.Text = DateTime.Now.ToString ("ddd MMM dd yyyy HH:mm:ss");
 			} else {
-				// TODO Edit mode;
+				todosDate.Text = todo.Date;
+				todosType.Text = (todo.Type == TodoModel.TypeBug ? TYPE_BUG : TYPE_FEATURE);
+				todosStatus.Text = (todo.Status == TodoModel.StatusNew ? STATUS_NEW : todo.Type == TodoModel.TypeBug ? STATUS_FIXED : STATUS_IMPLEMENTED);
+				description.Text = todo.Description;
 			}
-			this.projectId = projectId;
-			id = todoId;
+			model = todo;
 			rootPage = page;
 		}
-		public void OnBackButtonClicked(object sender, EventArgs e)
+		private void OnBackButtonClicked(object sender, EventArgs e)
 		{
 			if (BackButtonClicked != null) {
 				BackButtonClicked (this, new EventArgs ());
 			}
 		}
-		public void OnRemoveButtonClicked(object sender, EventArgs e)
+		private void OnRemoveButtonClicked(object sender, EventArgs e)
 		{
-			if (id != 0) {
+			if (model.Id != 0) {
 				if (RemoveButtonClicked != null) {
 					RemoveButtonClicked (this, new EventArgs ());
 				}
 			}
 		}
-		public async void OnSaveButtonClicked(object sender, EventArgs e)
+		private async void OnSaveButtonClicked(object sender, EventArgs e)
 		{
 			if (description.Text != null && !String.IsNullOrEmpty (description.Text.Trim())) {
-				var todo = new TodoModel ();
-				todo.Id = id;
-				todo.ProjectId = projectId;
-				todo.Description = description.Text.Trim();
-				todo.Date = todosDate.Text;
+				model.Description = description.Text.Trim();
+				model.Date = todosDate.Text;
 				if (todosType.Text.CompareTo (TYPE_BUG) == 0) {
-					todo.Type = TodoModel.TypeBug;
+					model.Type = TodoModel.TypeBug;
 				} else {
-					todo.Type = TodoModel.TypeFeature;
+					model.Type = TodoModel.TypeFeature;
 				}
 				if (todosStatus.Text.CompareTo (STATUS_NEW) == 0) {
-					todo.Status = TodoModel.StatusNew;
+					model.Status = TodoModel.StatusNew;
 				} else {
-					todo.Status = TodoModel.StatusFixedOrImplemented;
+					model.Status = TodoModel.StatusFixedOrImplemented;
+					model.Color = TodoModel.ColorGreen;
 				}
-				// TODO Implement chosing color
-
 				if (SaveButtonClicked != null) {
-					SaveButtonClicked (this, new EventSaveArgs (todo));
+					SaveButtonClicked (this, new EventSaveArgs (model));
 				}
 			} else {
 				await rootPage.DisplayAlert("Warning", "Please, enter todo's description.", "OK");
 				description.Focus ();
 			}
 		}
-		public async void OnTappedSelectType (object sender, EventArgs e)
+		private async void OnTappedSelectType (object sender, EventArgs e)
 		{
 			var type = await rootPage.DisplayActionSheet("Select Todo type", OPTION_CANCEL, null, TYPE_BUG, TYPE_FEATURE);
 			if (type.CompareTo (todosType.Text) != 0 && type.CompareTo (OPTION_CANCEL) != 0) {
@@ -100,11 +99,26 @@ namespace TODOs
 				}
 			}
 		}
-		public async void OnTappedSelectStatus (object sender, EventArgs e)
+		private async void OnTappedSelectStatus (object sender, EventArgs e)
 		{
 			var status = await rootPage.DisplayActionSheet("Select Todo type", OPTION_CANCEL, null, STATUS_NEW, todosType.Text.CompareTo(TYPE_BUG) == 0 ? STATUS_FIXED : STATUS_IMPLEMENTED);
 			if (todosStatus.Text.CompareTo (status) != 0 && status.CompareTo (OPTION_CANCEL) != 0) {
 				todosStatus.Text = status;
+			}
+		}
+		private void OnTappedSelectColor (object sender, EventArgs e)
+		{
+			var imageControl = sender as Image;
+			if (imageControl != null) {
+				if (imageControl == white) {
+					model.Color = TodoModel.ColorWhite;
+				} else if (imageControl == yellow) {
+					model.Color = TodoModel.ColorYellow;
+				} else if (imageControl == red) {
+					model.Color = TodoModel.ColorRed;
+				} else {
+					model.Color = TodoModel.ColorBlue;
+				}
 			}
 		}
 	}
