@@ -101,7 +101,7 @@ namespace TODOs
 		}
 		private async void OnTappedSelectStatus (object sender, EventArgs e)
 		{
-			var status = await rootPage.DisplayActionSheet("Select Todo type", OPTION_CANCEL, null, STATUS_NEW, todosType.Text.CompareTo(TYPE_BUG) == 0 ? STATUS_FIXED : STATUS_IMPLEMENTED);
+			var status = await rootPage.DisplayActionSheet("Select Todo status", OPTION_CANCEL, null, STATUS_NEW, todosType.Text.CompareTo(TYPE_BUG) == 0 ? STATUS_FIXED : STATUS_IMPLEMENTED);
 			if (todosStatus.Text.CompareTo (status) != 0 && status.CompareTo (OPTION_CANCEL) != 0) {
 				todosStatus.Text = status;
 			}
