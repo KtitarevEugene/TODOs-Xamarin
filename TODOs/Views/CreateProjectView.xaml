@@ -14,10 +14,7 @@
 		    <StackLayout Orientation="Vertical" BackgroundColor="#002638" Grid.Row="2" Grid.Column="0">
 				<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 					<StackLayout.Padding>
-						<OnPlatform x:TypeArguments="Thickness">
-							<OnPlatform.iOS>10, 10, 10, 10</OnPlatform.iOS>
-							<OnPlatform.Android>10, 10, 10, 10</OnPlatform.Android>
-						</OnPlatform>
+						<OnPlatform x:TypeArguments="Thickness" iOS="10, 10, 10, 10" Android="10, 10, 10, 10" />
 					</StackLayout.Padding>
 					<Label Text="Enter new project name" TextColor="White" XAlign="Center" HorizontalOptions="Center" HeightRequest="20" />
 					<Entry x:Name="projectNameFiled" FontSize="17" Placeholder="Project name" BackgroundColor="White" TextColor="Black" HorizontalOptions="FillAndExpand" HeightRequest="40" />

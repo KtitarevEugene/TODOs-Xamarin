@@ -13,19 +13,13 @@
 				<StackLayout VerticalOptions="Start" HorizontalOptions="Fill" HeightRequest="50" BackgroundColor="#007caa" Orientation="Horizontal">
 					<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
 						<StackLayout.Padding>
-							<OnPlatform x:TypeArguments="Thickness">
-								<OnPlatform.iOS>50, 0, 0, 0</OnPlatform.iOS>
-								<OnPlatform.Android>50, 0, 0, 0</OnPlatform.Android>
-							</OnPlatform>
+							<OnPlatform x:TypeArguments="Thickness" iOS="50, 0, 0, 0" Android="50, 0, 0, 0" />
 						</StackLayout.Padding>
 						<Label Text="Projects" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" XAlign="Center" FontAttributes="Bold" FontSize="20.0"/>
 					</StackLayout>
 					<StackLayout Orientation="Horizontal" HorizontalOptions="End">
 						<StackLayout.Padding>
-							<OnPlatform x:TypeArguments="Thickness">
-								<OnPlatform.iOS>0, 0, 10, 0</OnPlatform.iOS>
-								<OnPlatform.Android>0, 0, 10, 0</OnPlatform.Android>
-							</OnPlatform>
+							<OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 10, 0" Android="0, 0, 10, 0" />
 						</StackLayout.Padding>
 						<Image Source="addProject.png" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" HorizontalOptions="End">
 							<Image.GestureRecognizers>
@@ -41,10 +35,7 @@
 								<StackLayout Orientation="Vertical" HeightRequest="50">
 									<StackLayout VerticalOptions="StartAndExpand" HeightRequest="50" Orientation="Horizontal">
 										<StackLayout.Padding>
-											<OnPlatform x:TypeArguments="Thickness">
-												<OnPlatform.iOS>10, 0, 10, 0</OnPlatform.iOS>
-												<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
-											</OnPlatform>
+											<OnPlatform x:TypeArguments="Thickness" iOS="10, 0, 10, 0" Android="10, 0, 10, 0" />
 										</StackLayout.Padding>
 										<Label HorizontalOptions="FillAndExpand" FontSize="20" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding ProjectName}" />
 										<Image Source="arrow.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="End" />

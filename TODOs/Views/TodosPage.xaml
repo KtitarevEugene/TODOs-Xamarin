@@ -15,10 +15,7 @@
 				<StackLayout VerticalOptions="Start" HorizontalOptions="Fill" HeightRequest="50" BackgroundColor="#007caa" Orientation="Horizontal">
 					<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 						<StackLayout.Padding>
-							<OnPlatform x:TypeArguments="Thickness">
-								<OnPlatform.iOS>10, 0, -15, 0</OnPlatform.iOS>
-								<OnPlatform.Android>0, 0, -5, 0</OnPlatform.Android>
-							</OnPlatform>
+							<OnPlatform x:TypeArguments="Thickness" iOS="10, 0, -15, 0" Android="0, 0, -5, 0" />
 						</StackLayout.Padding>
 						<Button Text="Back" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" BackgroundColor="Transparent" Clicked="OnBackButtonClicked" />
 						<Label Text="TODOs" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" XAlign="Center" FontAttributes="Bold" FontSize="20.0"/>
@@ -26,10 +23,7 @@
 					</StackLayout>
 					<StackLayout Orientation="Horizontal" HorizontalOptions="End">
 						<StackLayout.Padding>
-							<OnPlatform x:TypeArguments="Thickness">
-								<OnPlatform.iOS>0, 0, 10, 0</OnPlatform.iOS>
-								<OnPlatform.Android>0, 0, 10, 0</OnPlatform.Android>
-							</OnPlatform>
+							<OnPlatform x:TypeArguments="Thickness" iOS="0, 0, 10, 0" Android="0, 0, 10, 0" />
 						</StackLayout.Padding>
 					</StackLayout>
 				</StackLayout>
@@ -40,10 +34,7 @@
 								<StackLayout Orientation="Vertical" HeightRequest="50" BackgroundColor="{Binding Converter={StaticResource colorIndex}}">
 									<StackLayout VerticalOptions="StartAndExpand" HeightRequest="50" Orientation="Horizontal">
 										<StackLayout.Padding>
-											<OnPlatform x:TypeArguments="Thickness">
-												<OnPlatform.iOS>10, 0, 10, 0</OnPlatform.iOS>
-												<OnPlatform.Android>10, 0, 10, 0</OnPlatform.Android>
-											</OnPlatform>
+											<OnPlatform x:TypeArguments="Thickness" iOS="10, 0, 10, 0" Android="10, 0, 10, 0" />
 										</StackLayout.Padding>
 										<Image Source="{Binding Converter={StaticResource typeToImage}}" HorizontalOptions="Start" HeightRequest="25" WidthRequest="25" />
 										<Label HorizontalOptions="FillAndExpand" FontSize="20" LineBreakMode="TailTruncation" TextColor="Black" VerticalOptions="CenterAndExpand" Text="{Binding Description}" />

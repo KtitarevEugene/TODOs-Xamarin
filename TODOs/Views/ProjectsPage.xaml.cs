@@ -13,7 +13,7 @@ namespace TODOs
 			var list = App.DataBase.GetAllProjects ();
 			projectsList.ItemsSource = list;
 		}
-		public void ShowCreateProjectView (object sender, EventArgs e)
+		private void ShowCreateProjectView (object sender, EventArgs e)
 		{
 			var createDialog = new CreateProjectView ();
 			createDialog.CancelClicked += (s, args) => {
@@ -33,7 +33,7 @@ namespace TODOs
 			};
 			contentPageArea.Children.Add (createDialog, new Rectangle (0f, 0f, 1f, 1f), AbsoluteLayoutFlags.All);
 		}
-		void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
+		private void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
 		{
 			var list = sender as CustomListView;
 			var todosPage = new TodosPage (this);

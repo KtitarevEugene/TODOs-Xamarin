@@ -14,10 +14,7 @@
 		    <StackLayout Orientation="Vertical" BackgroundColor="#002638" Grid.Row="2" Grid.Column="0">
 				<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
 					<StackLayout.Padding>
-						<OnPlatform x:TypeArguments="Thickness">
-							<OnPlatform.iOS>10, 10, 10, 10</OnPlatform.iOS>
-							<OnPlatform.Android>10, 10, 10, 10</OnPlatform.Android>
-						</OnPlatform>
+						<OnPlatform x:TypeArguments="Thickness" iOS="10, 10, 10, 10" Android="10, 10, 10, 10" />
 					</StackLayout.Padding>
 					<Button Text="Remove Project" TextColor="White" FontAttributes="Bold" FontSize="20" BorderRadius="10" BackgroundColor="#e00808" HeightRequest="40" Clicked="OnRemoveProjectButtonClicked" />
 					<Button Text="Add TODO" TextColor="White" FontAttributes="Bold" FontSize="20" BorderRadius="10" BackgroundColor="#789b25" HeightRequest="40" Clicked="OnAddTodoButtonClicked" />
