@@ -1,13 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TODOs.AboutPage" Title="About">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 xmlns:custom="clr-namespace:TODOs;assembly=TODOs"
+			 x:Class="TODOs.AboutPage"
+			 Title="About">
 	<ContentPage.Padding>
 		<OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" Android="0, 20, 0, 0" />
 	</ContentPage.Padding>
 	<ContentPage.Content>
-		<StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+		<StackLayout Orientation="Vertical" VerticalOptions="Center">
 			<Label Text="TODOs Application" TextColor="White" XAlign="Center" FontSize="25.0" VerticalOptions="Center" />
 			<Label Text="Version: 2.1.0" TextColor="White" XAlign="Center" FontSize="15.0" VerticalOptions="Center" />
-			<Button Text="www.smartru.com" TextColor="Black" FontSize="15.0" BackgroundColor="Transparent" HeightRequest="35" Clicked="OnFollowLinkButtonClicked" />
+			<custom:CustomLabel Text="www.smartru.com" TextColor="Black" IsUnderlined="true" XAlign="Center" FontSize="15.0" BackgroundColor="Transparent">
+				<custom:CustomLabel.GestureRecognizers>
+					<TapGestureRecognizer Tapped="OnFollowLinkClicked" />
+				</custom:CustomLabel.GestureRecognizers>
+			</custom:CustomLabel>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -11,12 +11,12 @@ namespace TODOs
 		{
 			InitializeComponent ();
 		}
-		public void OnFollowLinkButtonClicked (object sender, EventArgs e)
+		public void OnFollowLinkClicked (object sender, EventArgs e)
 		{
-			Button linkButton = (Button)sender;
+			Label linkLabel = sender as Label;
 			try
 			{
-				Device.OpenUri (new Uri ("http://" + linkButton.Text));
+				Device.OpenUri (new Uri ("http://" + linkLabel.Text));
 			}
 			catch (Exception)
 			{
